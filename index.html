@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swimming Training Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🏊 Swimming Training Tracker</h1>
+
+    <div class="input-box">
+        <input type="date" id="date">
+        <input type="number" id="distance" placeholder="Distance (meters)">
+        <input type="number" id="time" placeholder="Time (minutes)">
+        <button onclick="addSession()">Add Session</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Distance (m)</th>
+                <th>Time (min)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="sessionList"></tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
