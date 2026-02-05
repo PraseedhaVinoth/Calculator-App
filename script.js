@@ -22,18 +22,41 @@ function renderSessions() {
 }
 
 function addSession() {
+    function addSession() {
     const date = document.getElementById("date").value;
-    const distance = document.getElementById("distance").value;
-    const time = document.getElementById("time").value;
 
-    if (date && distance && time) {
-        sessions.push({ date, distance, time });
-        renderSessions();
+    const km = parseFloat(document.getElementById("km").value) || 0;
+    const m = parseFloat(document.getElementById("m").value) || 0;
 
-        document.getElementById("date").value = "";
-        document.getElementById("distance").value = "";
-        document.getElementById("time").value = "";
+    const hours = parseFloat(document.getElementById("hours").value) || 0;
+    const minutes = parseFloat(document.getElementById("minutes").value) || 0;
+
+    if (!date || (km === 0 && m === 0) || (hours === 0 && minutes === 0)) {
+        alert("Please enter valid values");
+        return;
     }
+
+    // Convert everything to base units
+    const totalDistanceMeters = (km * 1000) + m;
+    const totalTimeMinutes = (hours * 60) + minutes;
+
+    const table = document.getElementById("sessionTable");
+    const row = table.insertRow();
+
+    row.innerHTML = `
+        <td>${date}</td>
+        <td>${totalDistanceMeters}</td>
+        <td>${totalTimeMinutes}</td>
+        <td><button onclick="this.parentElement.parentElement.remove()">Delete</button></td>
+    `;
+
+    // Clear inputs
+    document.getElementById("km").value = "";
+    document.getElementById("m").value = "";
+    document.getElementById("hours").value = "";
+    document.getElementById("minutes").value = "";
+}
+
 }
 
 function deleteSession(index) {

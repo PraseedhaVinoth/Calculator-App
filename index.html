@@ -13,8 +13,18 @@
 
     <div class="input-box">
         <input type="date" id="date">
-        <input type="number" id="distance" placeholder="Distance (meters)">
-        <input type="number" id="time" placeholder="Time (minutes)">
+        <!-- Distance: Km + Meters -->
+<div class="group">
+    <input type="number" id="km" placeholder="Km" min="0">
+    <input type="number" id="m" placeholder="Meters" min="0">
+</div>
+
+<!-- Time: Hours + Minutes -->
+<div class="group">
+    <input type="number" id="hours" placeholder="Hours" min="0">
+    <input type="number" id="minutes" placeholder="Minutes" min="0">
+</div>
+
         <button onclick="addSession()">Add Session</button>
     </div>
 
